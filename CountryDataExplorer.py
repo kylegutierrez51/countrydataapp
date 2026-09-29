@@ -51,23 +51,19 @@ if selected_countries:
         st.session_state.chart_percentage = False
 
 
-    cols = st.columns(4)  # used to display the side-by-side buttons in columns
-
     if "selected_category" not in st.session_state:
         st.session_state.selected_category = -1
         # allows selected_category to be saved with a value so that important features like the selectbox and charts don't disappear when user
         # chooses an option in selectbox (aka when streamlit reruns)
 
-    with cols[0]:
+    # flexbox row; "distribute" is Streamlit's justify-content: space-between
+    with st.container(horizontal=True, horizontal_alignment="distribute", key="category_buttons"):
         if st.button("Economic Factors"):
             st.session_state.selected_category = 0
-    with cols[1]:
         if st.button("Social Factors"):
             st.session_state.selected_category = 1
-    with cols[2]:
         if st.button("Environmental Factors"):
             st.session_state.selected_category = 2
-    with cols[3]:
         if st.button("Developmental Factors"):
             st.session_state.selected_category = 3
 

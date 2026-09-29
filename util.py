@@ -5,7 +5,7 @@ def page_color():
     page_bg_img = """
     <style>
     [data-testid="stAppViewContainer"]{
-    background-color: #107AB0;
+    background-color: #163452;
     opacity: 0.8;
     }
     """
@@ -19,20 +19,32 @@ def button_style():
                 color: white;
                 border-radius: 5px;
                 border: none;
-                margin: 0px; 
-                //padding: 10px 20px;
+                margin: 0px;
+                padding: 0px 24px;
                 font-size: 15px;
-                width: 100%;
                 height: 50px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
             }
             .stButton > button:hover {
-                color: #d4d4d4;
-                background-color: ##2E8B57;
+                color: white;
+                background-color: #3CB371;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
             }
-            div.stButton > button:focus {
-                outline: none;
-                background-color: #2E8B57;
-                color: #d4d4d4;
+            .stButton > button:active {
+                color: white;
+                background-color: #257247;
+                transform: translateY(0px);
+                box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            }
+            div.stButton > button:focus:not(:active) {
+                color: white;
+                border: none;
+            }
+            div.stButton > button:focus-visible {
+                outline: 2px solid #A8E6C1;
+                outline-offset: 2px;
             }
             </style>
             """, unsafe_allow_html=True)
